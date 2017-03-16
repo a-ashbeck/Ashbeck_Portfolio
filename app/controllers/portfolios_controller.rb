@@ -39,10 +39,14 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def show
+    set_portfolio
+  end
+
   private
 
   def set_portfolio
-    @portfolio_item = Portfolio.find(params[:id]
+    @portfolio_item = Portfolio.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
