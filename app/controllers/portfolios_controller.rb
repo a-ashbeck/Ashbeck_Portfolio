@@ -43,6 +43,18 @@ class PortfoliosController < ApplicationController
     set_portfolio
   end
 
+  def destroy
+    # Performes the lookup
+    set_portfolio
+
+    @portfolio_item.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to portfolios_url, notice: 'Portfolio item was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def set_portfolio
